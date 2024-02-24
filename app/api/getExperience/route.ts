@@ -20,3 +20,9 @@ export async function GET(
     const experiences: Experience[] = await sanityClient.fetch(query)
     return NextResponse.json({experiences})
 }
+
+export async function getExperience() {
+    const experiences: Experience[] = await sanityClient.fetch(query)
+    console.log({experiences})
+    return JSON.stringify(experiences)
+}

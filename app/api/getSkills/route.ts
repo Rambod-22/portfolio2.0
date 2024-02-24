@@ -18,4 +18,9 @@ export async function GET(
     return NextResponse.json({skills})
 }
 
+export async function getSkills() {
+    const skills: Skill[] = await sanityClient.fetch(query)
+    return JSON.stringify(skills)
+}
+
 

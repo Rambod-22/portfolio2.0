@@ -21,5 +21,8 @@ export async function GET(
     return NextResponse.json({projects})
 }
 
-
+export async function getProjects() {
+    const projects: Project[] = await sanityClient.fetch(query)
+    return JSON.stringify(projects)
+}
 

@@ -17,3 +17,10 @@ export async function GET(
     const pageInfo: PageInfo = await sanityClient.fetch(query)
     return NextResponse.json({pageInfo})
 }
+
+
+export async function getPageInfo() {
+    const pageInfo: PageInfo = await sanityClient.fetch(query)
+    
+    return JSON.stringify(pageInfo)
+}
