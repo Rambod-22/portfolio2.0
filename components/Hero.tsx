@@ -9,6 +9,8 @@ type Props = {
 }
 
 function Hero({ pageInfo}: Props) {
+
+    console.log("inside hero ====", {pageInfo})
     const [text, count] = useTypewriter({
         words: [
             `Hi, The Name's ${pageInfo?.name}`,
