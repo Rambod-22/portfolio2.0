@@ -26,6 +26,21 @@ type Props = {
   socials: Social[];
 }
 
+async function getProps() {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+  return {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials
+    }
+}
 
 export default async function Home() {
   const {pageInfo, experiences, projects, socials, skills} = await getProps()
@@ -70,18 +85,4 @@ export default async function Home() {
   );
 }
 
-export async function getProps() {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
 
-  return {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials
-    }
-}
