@@ -1,3 +1,4 @@
+'use client'
 import { urlFor } from '@/sanity'
 import { PageInfo } from '@/typings'
 import { motion } from 'framer-motion'
