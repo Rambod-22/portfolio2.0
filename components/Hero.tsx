@@ -1,3 +1,4 @@
+'use client'
 import Link from '@/node_modules/next/link'
 import { urlFor } from '@/sanity'
 import { PageInfo } from '@/typings'
