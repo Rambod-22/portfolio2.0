@@ -24,6 +24,7 @@ import { fetchSocials } from "@/utils/fetchSocials";
 export default async function Home() {
   async function getProps() {
     const pageInfo: PageInfo = await fetchPageInfo();
+    console.log("inside getprops", {pageInfo})
     const experiences: Experience[] = await fetchExperiences();
     const skills: Skill[] = await fetchSkills();
     const projects: Project[] = await fetchProjects();
