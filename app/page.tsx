@@ -51,7 +51,7 @@ export default async function Home() {
 
       </section>
       <section id="about" className="snap-center">
-        <About pageInfo={pageInfo}/>
+        <About pageInfo={pageInfo} isVisible={true} />
       </section>
       <section id="experience" className="snap-center">
         <WorkExperience experiences={experiences}/>
