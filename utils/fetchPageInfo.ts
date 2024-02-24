@@ -5,11 +5,13 @@ export const fetchPageInfo = async() => {
 
   //  const data = await res.json()
   //  const pageInfo: PageInfo = data.pageInfo;
+    console.log("fetch page Info")
+
     const res = await getPageInfo()
     const data = await JSON.parse(res)
     const pageInfo = data;
     // console.log("fetching", skills)
-   // console.log({pageInfo})
+    console.log({pageInfo})
 
     return pageInfo;
 }

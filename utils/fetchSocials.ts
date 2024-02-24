@@ -7,10 +7,11 @@ export const fetchSocials = async() => {
   //  const socials: Social[] = data.socials;
 
     // console.log("fetching", skills)
+    console.log("fetch socials")
     const res = await getSocials()
     const data = await JSON.parse(res)
     const socials = data;
-  //  console.log({socials})
+    console.log({socials})
 
     return socials;
 }

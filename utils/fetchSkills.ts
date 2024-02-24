@@ -7,10 +7,12 @@ export const fetchSkills = async() => {
  //   const skills: Skill[] = data.skills;
 
     // console.log("fetching", skills)
+    console.log("fetch skills")
+
     const res = await getSkills()
     const data = await JSON.parse(res)
     const skills = data;
-   // console.log({skills})
+    console.log({skills})
 
     return skills;
 }
