@@ -18,13 +18,6 @@ import { fetchSkills } from "@/utils/fetchSkills";
 import { fetchProjects } from "@/utils/fetchProjects";
 import { fetchSocials } from "@/utils/fetchSocials";
 
-type Props = {
-  pageInfo: PageInfo;
-  experiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
-  socials: Social[];
-}
 
 async function getProps() {
   const pageInfo: PageInfo = await fetchPageInfo();
