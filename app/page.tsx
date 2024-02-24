@@ -47,7 +47,7 @@ export default async function Home() {
 
       <Header socials={socials}/>
       <section id="hero" className="snap-center">
-        <Hero pageInfo={pageInfo}/> 
+        {/* <Hero pageInfo={pageInfo}/>  */}
 
       </section>
       <section id="about" className="snap-center">
