@@ -18,9 +18,3 @@ export async function GET(
     return NextResponse.json({pageInfo})
 }
 
-
-export async function getPageInfo() {
-    const pageInfo: PageInfo = await sanityClient.fetch(query)
-    
-    return JSON.stringify(pageInfo)
-}

@@ -19,7 +19,3 @@ export async function GET(
     return NextResponse.json({socials})
 }
 
-export async function getSocials() {
-    const socials: Social[] = await sanityClient.fetch(query)
-    return JSON.stringify(socials)
-}

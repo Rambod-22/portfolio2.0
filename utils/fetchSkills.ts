@@ -1,5 +1,5 @@
 import { Skill } from "@/typings";
-import { getSkills } from "@/app/api/getSkills/route";
+import { getSkills } from "@/app/data/getSkills";
 export const fetchSkills = async() => {
  //   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`, { next: { revalidate: 10 } , mode: "no-cors"})
 
