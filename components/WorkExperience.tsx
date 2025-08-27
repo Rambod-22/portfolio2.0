@@ -13,13 +13,15 @@ function WorkExperience({ experiences}: Props) {
 
     const scrollLeft = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+            const scrollDistance = window.innerWidth < 640 ? 300 : window.innerWidth < 1024 ? 400 : 500;
+            scrollRef.current.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
         }
     };
 
     const scrollRight = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+            const scrollDistance = window.innerWidth < 640 ? 300 : window.innerWidth < 1024 ? 400 : 500;
+            scrollRef.current.scrollBy({ left: scrollDistance, behavior: 'smooth' });
         }
     };
 
@@ -36,9 +38,9 @@ function WorkExperience({ experiences}: Props) {
             {/* Left Arrow */}
             <button
                 onClick={scrollLeft}
-                className='absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-3 rounded-full shadow-lg transition-colors duration-200'
+                className='absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-2 sm:p-3 lg:p-4 rounded-full shadow-lg transition-colors duration-200 touch-manipulation'
             >
-                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <svg className='w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 19l-7-7 7-7' />
                 </svg>
             </button>
@@ -46,9 +48,9 @@ function WorkExperience({ experiences}: Props) {
             {/* Right Arrow */}
             <button
                 onClick={scrollRight}
-                className='absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-3 rounded-full shadow-lg transition-colors duration-200'
+                className='absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-2 sm:p-3 lg:p-4 rounded-full shadow-lg transition-colors duration-200 touch-manipulation'
             >
-                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <svg className='w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                 </svg>
             </button>
