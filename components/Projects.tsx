@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useRef } from 'react'
 import {motion} from 'framer-motion'
 import { Project } from '@/typings';
 import { urlFor } from '@/sanity';
@@ -8,10 +8,45 @@ type Props = {
 }
 
 function Projects({ projects}: Props) {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    const scrollLeft = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+        }
+    };
+
     return (
         <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration:1.5}}  className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'>
             <h3 className='absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
-            <div className='scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 pb-10'>
+            
+            {/* Left Arrow */}
+            <button
+                onClick={scrollLeft}
+                className='absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-3 rounded-full shadow-lg transition-colors duration-200'
+            >
+                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 19l-7-7 7-7' />
+                </svg>
+            </button>
+
+            {/* Right Arrow */}
+            <button
+                onClick={scrollRight}
+                className='absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-[#F7AB0A]/80 hover:bg-[#F7AB0A] p-3 rounded-full shadow-lg transition-colors duration-200'
+            >
+                <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                </svg>
+            </button>
+
+            <div ref={scrollRef} className='scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 pb-10'>
                 {projects.map((project, i) => (
                     <div key={project._id} className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
                         <motion.img className='h-96' initial={{y:-300, opacity: 0}} transition={{duration: 1.2}} whileInView={{opacity: 1, y:0}} viewport={{once:true}} src={urlFor(project?.image).url()} alt="" />
